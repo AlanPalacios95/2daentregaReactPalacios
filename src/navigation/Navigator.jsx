@@ -1,5 +1,6 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { StatusBar} from "react-native";
 import ItemDetail from "../screens/ItemDetail";
 import ItemListCategories from "../screens/ItemListCategories";
 import Home from "../screens/Home";
@@ -10,6 +11,7 @@ const Navigator = () => {
 
   return (
     <NavigationContainer>
+        <StatusBar style="auto" />
       <Stack.Navigator
         initialRouteName="Home"
         screenOptions={({ route }) => ({
