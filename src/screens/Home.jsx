@@ -3,11 +3,10 @@ import { StyleSheet, View } from "react-native";
 import Header from "../components/Header";
 import Categories from "../components/Categories";
 
-const Home = ({ setCategorySelected }) => {
+const Home = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Header title={"Inicio"} />
-      <Categories setCategorySelected={setCategorySelected} />
+      <Categories navigation={navigation} />
     </View>
   );
 };

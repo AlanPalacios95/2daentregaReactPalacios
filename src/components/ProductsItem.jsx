@@ -1,14 +1,21 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import Card from "./Card";
 
-const ProductsItem = ({ product }) => {
+const ProductsItem = ({ product, navigation }) => {
   return (
-    <Card style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.title}>{product.title}</Text>
-        <Image style={styles.images} source={{ uri: product.images[0] }} />
-      </View>
-    </Card>
+    <>
+      <Pressable
+        style={styles.card}
+        onPress={() => navigation.navigate("ItemDetail", { id: product.id })}
+      >
+        <Card style={styles.container}>
+          <View style={styles.content}>
+            <Text style={styles.text}>{product.title}</Text>
+            <Image style={styles.images} source={{ uri: product.images[0] }} />
+          </View>
+        </Card>
+      </Pressable>
+    </>
   );
 };
 
@@ -16,25 +23,25 @@ export default ProductsItem;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100%",
     backgroundColor: "#0B606F",
+    alignItems: "center",
+    borderRadius: 10,
+    padding: 10,
+    margin: 10,
   },
   content: {
     flexDirection: "row",
-    alignItems: "center", 
-    justifyContent: "space-between", 
+    alignItems: "center",
+    justifyContent: "space-between",
   },
   title: {
     fontSize: 18,
     fontWeight: "bold",
+    marginBottom: 10,
   },
   images: {
-    width: 100,
-    height: 100,
+    width: 70,
+    height: 70,
     borderRadius: 5,
   },
 });
