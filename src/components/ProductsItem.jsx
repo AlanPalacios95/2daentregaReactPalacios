@@ -11,7 +11,7 @@ const ProductsItem = ({ product, navigation }) => {
         <Card style={styles.container}>
           <View style={styles.content}>
             <Text style={styles.text}>{product.title}</Text>
-            <Image style={styles.images} source={{ uri: product.images[0] }} />
+            <Image style={styles.images} source={{ uri: product.images[1] }} />
           </View>
         </Card>
       </Pressable>

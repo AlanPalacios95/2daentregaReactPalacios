@@ -1,8 +1,12 @@
-import Navigator from "./src/navigation/Navigator"
+import { Provider } from "react-redux";
+import TabNavigation from "./src/navigation/TabNavigatior";
+import store from "./src/store/index";
+
 export default function App() {
+  return(
 
-
-
-  return <Navigator />
+  <Provider store={store}>
+    <TabNavigation />
+  </Provider>
+  );
 }
-

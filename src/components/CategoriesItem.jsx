@@ -1,10 +1,18 @@
 import { Pressable, StyleSheet, Text } from "react-native";
 import Card from "./Card";
+import { useDispatch } from "react-redux";
+import { setCategorySelected } from "../feactures/shop/shopSlice";
 
 const CategoriesItem = ({ category, navigation}) => {
+
+  const dispatch = useDispatch()
+
   return (
     <Card style={styles.container}>
-      <Pressable onPress={() => navigation.navigate("ItemListCategory", {category})}>
+      <Pressable onPress={() => {
+        dispatch(setCategorySelected(category))
+         navigation.navigate("ItemListCategory", {category})}
+      }>
         <Text style={styles.text}>{category}</Text>
       </Pressable>
     </Card>
