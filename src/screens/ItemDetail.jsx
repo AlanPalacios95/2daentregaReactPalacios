@@ -1,11 +1,19 @@
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import React, { useEffect, useState } from "react";
 import allProducts from "../data/products.json";
+import { useDispatch } from "react-redux";
+import { addItem } from "../feactures/shop/cartSlice";
 
 const ItemDetail = ({ navigation, route }) => {
   const [product, setProduct] = useState(null);
 
   const { id } = route.params;
+
+  const dispatch = useDispatch()
+
+  const onAddCart = () => {
+    dispatch(addItem({...product, quatity: 1}))
+  }
 
   useEffect(() => {
     const productFinded = allProducts.find((product) => product.id === id);
@@ -17,7 +25,7 @@ const ItemDetail = ({ navigation, route }) => {
       {product ? (
         <View style={styles.container}>
           <Image
-            source={{ uri: product.images[0] }}
+            source={{ uri: product.images[0] }} 
             style={styles.image}
             resizeMode="cover"
           />
@@ -25,8 +33,8 @@ const ItemDetail = ({ navigation, route }) => {
             <Text style={styles.descriptionText}>{product.title}</Text>
             <Text style={styles.descriptionText}>{product.description}</Text>
             <Text style={styles.descriptionTextPrice}>${product.price}</Text>
-            <Pressable style={styles.buy}>
-              <Text style={styles.buyText}>Buy now</Text>
+            <Pressable style={styles.buy} onPress={onAddCart}>
+              <Text style={styles.buyText}>Add to cart</Text>
             </Pressable>
           </View>
         </View>
