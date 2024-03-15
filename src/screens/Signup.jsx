@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Pressable } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import InputForm from '../components/InputForm'; 
 import { useSignUpMutation } from '../services/authService';
+import { setUser } from "../feactures/auth/authSlice";
 import SubmitButton from '../components/SubmitButton';
 import { useDispatch } from 'react-redux';
 import {signupSchema} from '../validations/signupSchema'
@@ -41,7 +42,7 @@ const Signup = () => {
 
     useEffect(() => {
         if(result.data) {
-            dispatch(setUser(result))
+            dispatch(setUser(result.data))
         }
     }, [result])
 

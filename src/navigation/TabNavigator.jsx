@@ -5,6 +5,7 @@ import CartStack from "./CartStack";
 import { StyleSheet, Text, View } from "react-native";
 import { FontAwesome, Entypo, Foundation } from "@expo/vector-icons";
 import OrdersStack from "./OrderStack";
+import MyProfileStack from "./MyProfileStack";
 
 const TabNavigation = () => {
   const Tab = createBottomTabNavigator();
@@ -72,6 +73,26 @@ const TabNavigation = () => {
                   />
                   <Text style={{ color: focused ? "black" : "white" }}>
                     Orders
+                  </Text>
+                </View>
+              );
+            },
+          }}
+        />
+        <Tab.Screen
+          name="MyProfileStack"
+          component={MyProfileStack}
+          options={{
+            tabBarIcon: ({ focused }) => {
+              return (
+                <View>
+                  <Foundation
+                    name="clipboard-notes"
+                    size={24}
+                    color={focused ? "black" : "white"}
+                  />
+                  <Text style={{ color: focused ? "black" : "white" }}>
+                    My Profile
                   </Text>
                 </View>
               );

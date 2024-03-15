@@ -9,8 +9,7 @@ export const shopApi = createApi({
     //     query: () => 'products.json'
     // }),
     getProductsByCategory: builder.query({
-      query: (category) =>
-        `products.json?orderBy="category"&equalTo="${category}"`,
+      query: (category) => `products.json?orderBy="category"&equalTo="${category}"`,
     }),
     getCategories: builder.query({
       query: () => "categories.json",
@@ -38,16 +37,16 @@ export const shopApi = createApi({
       query: (localId) => `locations/${localId}.json`,
     }),
     postUserLocation: builder.mutation({
-      query: ({ localId, location }) => ({
+      query: ({ localId, location}) => ({
         url: `locations/${localId}.json`,
         method: "PUT",
         body: {
           latitude: location.latitude,
           longitude: location.longitude,
-          address: location.address,
+          address: location.address
         },
-      }),
-    }),
+      })
+    })
   }),
 });
 
