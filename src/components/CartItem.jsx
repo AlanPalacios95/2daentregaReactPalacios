@@ -5,7 +5,7 @@ const CartItem = ({ item }) => {
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
-        <Image style={styles.image} source={{ uri: item.images[1] }} />
+        <Image style={styles.image} source={{ uri: item.images[0] }} />
       </View>
       <View style={styles.textContainer}>
         <Text style={styles.title}>{item.title}</Text>

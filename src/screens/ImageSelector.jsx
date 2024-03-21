@@ -2,7 +2,7 @@ import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 import * as ImagePicker from "expo-image-picker";
 import { useDispatch, useSelector } from "react-redux";
-import { setCameraImage } from "../features/auth/authSlice";
+import { setCameraImage } from "../feactures/auth/authSlice";
 import { usePostProfileImageMutation } from "../services/shopService";
 
 const ImageSelector = ({ navigation }) => {

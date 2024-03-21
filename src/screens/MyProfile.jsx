@@ -59,7 +59,6 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   text: {
-    fontFamily: "InterRegular",
     fontSize: 18,
     color: "white",
   },
